@@ -1,5 +1,5 @@
 {
   "env": {
-    "MONGO_ATLAS_PW": "budget_tracker_api"
+    "MONGO_ATLAS_PW": "budget-tracker-api"
   }
 }
