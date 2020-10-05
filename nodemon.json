@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MONGO_ATLAS_PW": "budget_tracker_api"
+  }
+}
