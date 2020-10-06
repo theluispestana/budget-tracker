@@ -12,7 +12,7 @@ const ExpenseSchema: Schema = new Schema({
   owner: { type: Schema.Types.ObjectId, required: true },
   name: { type: String, required: true },
   amount: { type: Number, required: true },
-  frequency: { type: String, required: true },
+  frequency: { type: Number, required: true },
 });
 
 export default mongoose.model<IExpense>("Expense", ExpenseSchema);

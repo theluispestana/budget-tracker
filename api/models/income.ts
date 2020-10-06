@@ -12,7 +12,7 @@ const IncomeSchema: Schema = new Schema({
   owner: { type: Schema.Types.ObjectId, required: true },
   source: { type: String, required: true },
   amount: { type: Number, required: true },
-  frequency: { type: String, required: true },
+  frequency: { type: Number, required: true },
 });
 
 export default mongoose.model<IIncome>("Income", IncomeSchema);

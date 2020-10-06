@@ -1,5 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
+import usersRouter from "../api/routes/users";
+import bodyParser from "body-parser";
+
 const app = express();
 const PORT = process.env.port || 3000;
 
@@ -10,6 +13,9 @@ mongoose.connect(uri, {
   useUnifiedTopology: true,
 });
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.get("/", (req, res) => {
   res.send("Hello World test");
 });
@@ -17,3 +23,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server started at port ${PORT}`);
 });
+
+app.use("/users", usersRouter);
