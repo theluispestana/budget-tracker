@@ -4,10 +4,8 @@
   "main": "dist/src/app.js",
   "scripts": {
     "clean": "rimraf dist/*",
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "npm-run-all clean lint tsc",
-    "prestart": "npm run build",
     "start": "node .",
     "tsc": "tsc",
     "dev:start": "npm-run-all build start",
@@ -31,7 +29,6 @@
   },
   "dependencies": {
     "@types/mongoose": "^5.7.36",
-    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.7"
   }
