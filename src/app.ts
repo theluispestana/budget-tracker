@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import usersRouter from "../api/routes/users";
 import debtsRouter from "../api/routes/debts";
+import expensesRouter from "../api/routes/expenses";
+import incomesRouter from "../api/routes/incomes";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -27,3 +29,5 @@ app.listen(PORT, () => {
 
 app.use("/users", usersRouter);
 app.use("/debts", debtsRouter);
+app.use("/incomes", incomesRouter);
+app.use("/expenses", expensesRouter);
