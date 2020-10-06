@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import usersRouter from "../api/routes/users";
+import debtsRouter from "../api/routes/debts";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World test");
+  res.send("Hello World");
 });
 
 app.listen(PORT, () => {
@@ -25,3 +26,4 @@ app.listen(PORT, () => {
 });
 
 app.use("/users", usersRouter);
+app.use("/debts", debtsRouter);
