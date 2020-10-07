@@ -7,7 +7,7 @@ import incomesRouter from "../api/routes/incomes";
 import bodyParser from "body-parser";
 
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.port || 3001;
 
 const uri = `mongodb+srv://budget-tracker-api:${process.env.MONGO_ATLAS_PW}@cluster0.12gli.mongodb.net/budget_tracker_api?retryWrites=true&w=majority`;
 
