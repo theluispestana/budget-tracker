@@ -3,9 +3,10 @@ import User from "../models/user";
 
 const usersRouter = express.Router();
 
-usersRouter.get("/:id", (req, res, next) => {
+usersRouter.get("/:email", (req, res, next) => {
   console.log("searching for user");
-  User.findById(req.params.id)
+  // User.findById(req.params.id)
+  User.find({ email: req.params.email })
     .exec()
     .then((doc) => {
       console.log(doc);
@@ -27,10 +28,7 @@ usersRouter.post("/", (req, res, next) => {
     .save()
     .then((result) => {
       console.log(result);
-      res.status(201).json({
-        message: "Handling POST requests to /users",
-        createdUser: user,
-      });
+      res.status(201).json(user);
     })
     .catch((err) => {
       console.log(err);
