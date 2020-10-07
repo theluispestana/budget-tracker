@@ -3,9 +3,9 @@ import Income from "../models/income";
 
 const incomeRouter = express.Router();
 
-incomeRouter.get("/", (req, res, next) => {
-  console.log("looking for users income");
-  Income.find({ owner: req.body.owner })
+incomeRouter.get("/:id", (req, res, next) => {
+  console.log("looking for users income", req.params.id);
+  Income.find({ "owner._id": req.params.id })
     .exec()
     .then((doc) => {
       console.log(doc);
@@ -18,7 +18,7 @@ incomeRouter.get("/", (req, res, next) => {
 });
 
 incomeRouter.post("/", (req, res, next) => {
-  console.log("creating debt");
+  console.log("creating income");
   const income = new Income({
     owner: req.body.owner,
     source: req.body.source,
