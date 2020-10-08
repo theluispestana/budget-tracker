@@ -3,9 +3,9 @@ import Debt from "../models/debt";
 
 const debtsRouter = express.Router();
 
-debtsRouter.get("/", (req, res, next) => {
+debtsRouter.get("/:id", (req, res, next) => {
   console.log("looking for users debts");
-  Debt.find({ owner: req.body.owner })
+  Debt.find({ "owner._id": req.params.id })
     .exec()
     .then((doc) => {
       console.log(doc);
