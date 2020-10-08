@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import usersRouter from "../api/routes/users";
 import debtsRouter from "../api/routes/debts";
 import expensesRouter from "../api/routes/expenses";
@@ -18,6 +19,8 @@ mongoose.connect(uri, {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hello World");

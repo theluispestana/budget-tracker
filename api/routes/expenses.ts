@@ -3,9 +3,9 @@ import Expense from "../models/expense";
 
 const expenseRouter = express.Router();
 
-expenseRouter.get("/", (req, res, next) => {
+expenseRouter.get("/:id", (req, res, next) => {
   console.log("looking for users expenses");
-  Expense.find({ owner: req.body.owner })
+  Expense.find({ "owner._id": req.params.id })
     .exec()
     .then((doc) => {
       console.log(doc);
@@ -21,7 +21,7 @@ expenseRouter.post("/", (req, res, next) => {
   console.log("creating expense");
   const expense = new Expense({
     owner: req.body.owner,
-    source: req.body.source,
+    name: req.body.name,
     amount: req.body.amount,
     frequency: req.body.frequency,
   });
@@ -31,7 +31,7 @@ expenseRouter.post("/", (req, res, next) => {
       console.log(result);
       res.status(201).json({
         message: "Handling POST request to /expense",
-        createdIncome: expense,
+        createdExpense: expense,
       });
     })
     .catch((err) => {
